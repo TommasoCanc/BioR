@@ -205,3 +205,5 @@ sorensen <- function(y, method = "s"){
   }
   return(output)
 }
+
+Ciao
