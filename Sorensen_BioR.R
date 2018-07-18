@@ -14,7 +14,7 @@
 #' data(macro_ex)
 #' data.bio <- asBiomonitor(macro_ex)
 #' data.agR <- aggregatoR(data.bio)
-#' bqies(data.agR)
+
 
 sorensen <- function(y, method = "s"){
   # Remove taxa column
