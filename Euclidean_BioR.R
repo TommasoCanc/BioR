@@ -19,6 +19,8 @@
 euclidean <- function(y, method = "s"){
   # Remove taxa column
   y_no_taxa <- y1[,-1]
+  # Transform the abundance dataset in presence/absence dataset
+  pa_df <- as.data.frame(ifelse(y_no_taxa >0, 1,0))
   # Creating all possible combinations between all columns with presence/absence data
   comb_pa <- combn(pa_df,2,simplify = F)
   # Creating all possible combinations between all columns with original abundance data
