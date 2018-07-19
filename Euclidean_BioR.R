@@ -16,7 +16,7 @@
 #' data.agR <- aggregatoR(data.bio)
 
 
-euclidean <- function(y, method = "s"){
+euclidean <- function(y, method = "d"){
   # Remove taxa column
   y_no_taxa <- y1[,-1]
   # Transform the abundance dataset in presence/absence dataset
