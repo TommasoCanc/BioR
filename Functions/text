@@ -1,1 +1,5 @@
 This folder contains useful functions
+
+* apiGbif_BioR: Create a new reference database from a dataset of species.
+
+* synoGbif: Detect the synonyms and replace it with an accepted name aggregating the abundance.
