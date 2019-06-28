@@ -10,8 +10,8 @@ synoGbif <- function(x, start_point = 1, end_point = 1) {
   if (!require("plyr")) install.packages("plyr")
   require(plyr)
   
-  pb <- progress_bar$new(total = end_point)
   statistic <- data.frame()
+  pb <- progress_bar$new(total = end_point)
   for(i in start_point:end_point) {
     taxon <- gsub(" ", "%20", x$Taxa[i])
     ur.1 <- paste0("http://api.gbif.org/v1/species/match?&name=", taxon)
@@ -28,13 +28,14 @@ synoGbif <- function(x, start_point = 1, end_point = 1) {
   }
   
   # Aggregate duplicate
-  dup.agr <- cbind(statistic$accepted_name, x)  
-  dup.agr <- ddply(dup.agr,"statistic$accepted_name",numcolwise(sum))
-  colnames(dup.agr)[1] <- "Taxa"
-  
+   dup.agr <- cbind(statistic$accepted_name, x)
+   colnames(dup.agr)[1] <- "accepted_name"
+   dup.agr <- ddply(dup.agr, "accepted_name", numcolwise(sum))
+   colnames(dup.agr)[1] <- "Taxa"
+   
+
   remplace.synonyms <- statistic[statistic$status == "SYNONYM",]
-  
-  list(dataset = dup.agr, 
+
+  list(dataset = dup.agr,
        remplace = remplace.synonyms)
-  
 }
