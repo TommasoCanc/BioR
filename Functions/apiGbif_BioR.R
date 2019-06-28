@@ -12,7 +12,7 @@ require(progress)
 tax <- data.frame()
 statistic <- data.frame()
 for(i in start_point:end_point) {
-  taxon <- gsub(" ", "%20", x[i])
+  taxon <- gsub(" ", "%20", x$Taxa[i])
   ur.1 <- paste0("http://api.gbif.org/v1/species/match?&name=", taxon)
   content.1 <- fromJSON(file = ur.1)
   
