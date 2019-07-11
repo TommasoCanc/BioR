@@ -1,3 +1,21 @@
+#' @name apiWorms
+#' @title Function for creating reference databases using API from Worls Register of Marine Species (WORMS)
+#'
+#' @description This function allows creating our custon reference database using API from Worls Register of Marine Species (WORMS).
+#' @param x Vector contain your Taxa list. This is the base list to create your custom reference database.
+#' @param start_point First row number to start the creation of your reference database
+#' @param end_point Last row number  to end the creation of your reference database
+#' @param cknoFound logic. If = T it is possible check if are present taxa impossible to find with species name in WORMS. If there are some 'not found taxa' it is recommended use addWorms function.
+#' @keywords darabase, reference, taxa
+#' @seealso \code{\link{asBiomonitor}}
+#' @seealso \code{\link{addWorms}}
+#' @examples
+#' refDB <- apiWorms(data$Taxa, end_point = nrow(data), cknoFound = T)
+#' refDB$taxonomy
+#' x.asb <- asBiomonitor(x, dfref = refDB$taxonomy, overwrite = T)
+#' x.agR = aggregatoR(x.asb)
+
+
 apiWorms <- function(x, start_point = 1, end_point = 1, cknoFound = F) {
   
   # Packages
