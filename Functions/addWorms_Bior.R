@@ -2,19 +2,16 @@
 #' @title Function for upgreating reference databases created by apiWorms.
 #'
 #' @description This function allows upgreating our custon reference database created previusly by apiWorms. This finction works using WORMS AlphiaID. 
-#' @aliases 
 #' @param starterDB Custom reference database obtained by apiWorms.
 #' @param notFound.check Taxa not founded using apiWorms.
 #' @keywords darabase, reference, taxa
-#' @export
-#' @export 
 #' @seealso \code{\link{asBiomonitor}}
 #' @examples
 #' refDB <- apiWorms(data$Taxa, end_point = nrow(data), cknoFound = T)
 #' totDB <- addWorms(refDB, refDB$notFound.check)
 #' totDB$taxonomy
-#' fish.asb <- asBiomonitor(fish, dfref = totDB$taxonomy, overwrite = T)
-#' fish.agR = aggregatoR(fish.asb)
+#' x.asb <- asBiomonitor(x, dfref = totDB$taxonomy, overwrite = T)
+#' x.agR = aggregatoR(x.asb)
 
 addWorms <- function(starterDB, notFound.check){
   
